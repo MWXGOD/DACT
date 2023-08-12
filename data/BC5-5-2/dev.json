@@ -1,0 +1,1 @@
+[{"sentence": ["Use", "of", "antithymocyte", "globulin", "may", "be", "the", "optimal", "treatment", "of", "D", "-", "penicillamine", "-", "induced", "aplastic", "anemia", "."], "ner": [{"index": [15, 16], "type": "Disease"}]}, {"sentence": ["Nephrotoxicity", "of", "combined", "cephalothin", "-", "gentamicin", "regimen", "."], "ner": [{"index": [0], "type": "Disease"}]}]
