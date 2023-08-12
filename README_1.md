@@ -1,17 +1,21 @@
- # Unified Named Entity Recognition as Word-Word Relation Classification
+ # Data Augmentation for Few-Shot Named Entity Recognition Using ChatGPT with Transfer Learning(DACT)
+ 
 
-Source code for AAAI 2022 paper: [Unified Named Entity Recognition as Word-Word Relation Classification](https://arxiv.org/pdf/2112.10070.pdf)
-
-> So far, named entity recognition (NER) has been involved with three major types, including flat, overlapped (aka. nested), and discontinuous NER, which have mostly been studied individually. Recently, a growing interest has been built for unified NER, tackling the above three jobs concurrently with one single model. Current best-performing methods mainly include span-based and sequence-to-sequence models, where unfortunately the former merely focus on boundary identification and the latter may suffer from exposure bias. In this work, we present a novel alternative by modeling the unified NER as word-word relation classification, namely W2NER. The architecture resolves the kernel bottleneck of unified NER by effectively modeling the neighboring relations between entity words with Next-Neighboring-Word (NNW) and Tail-Head-Word-* (THW-*) relations. Based on the W2NER scheme we develop a neural framework, in which the unified NER is modeled as a 2D grid of word pairs. We then propose multi-granularity 2D convolutions for better refining the grid representations. Finally, a co-predictor is used to sufficiently reason the word-word relations. We perform extensive experiments on 14 widely-used benchmark datasets for flat, overlapped, and discontinuous NER (8 English and 6 Chinese datasets), where our model beats all the current top-performing baselines, pushing the state-of-the-art performances of unified NER.
-
-### Label Scheme
+### 1_aug_exam
 <p align="center">
-  <img src="./figures/scheme.PNG" width="400"/>
+  <img src="./figures/1_aug_exam.jpg" width="400"/>
+</p>
+ 
+
+### 2_decode
+<p align="center">
+  <img src="./figures/3_decode.jpg" width="400"/>
 </p>
 
-### Architecture
+
+### 2_model
 <p align="center">
-  <img src="./figures/architecture.PNG" />
+  <img src="./figures/2_model.jpg" />
 </p>
 
 ## 1. Environments
@@ -35,27 +39,18 @@ Source code for AAAI 2022 paper: [Unified Named Entity Recognition as Word-Word 
 
 ## 3. Dataset
 
-- [Conll 2003](https://www.clips.uantwerpen.be/conll2003/ner/)
-- [OntoNotes 4.0](https://catalog.ldc.upenn.edu/LDC2011T03)
-- [OntoNotes 5.0](https://catalog.ldc.upenn.edu/LDC2013T19)
-- [ACE 2004](https://catalog.ldc.upenn.edu/LDC2005T09)
-- [ACE 2005](https://catalog.ldc.upenn.edu/LDC2006T06)
-- [GENIA](http://www.geniaproject.org/genia-corpus)
-- [CADEC](https://pubmed.ncbi.nlm.nih.gov/25817970/)
-- [ShARe13](https://clefehealth.imag.fr/?page_id=441)
-- [ShARe14](https://sites.google.com/site/clefehealth2014/)
-
-We provide some datasets processed in this [link](https://drive.google.com/drive/folders/1NdvUeIUUL3mlS8QwwnqM628gCK7_0yPv?usp=sharing).
+We provide some datasets processed in our code.
 
 ## 4. Preparation
 
-- Download dataset
-- Process them to fit the same format as the example in `data/`
-- Put the processed data into the directory `data/`
+- 根据小样本原始数据，使用ChatGPT进行增强（code中已经给出）
+- 预训练相关数据集的迁移权重
+- 在训练增强后的小样本数据时，迁移已经训练好的相关数据权重
 
 ## 5. Training
 
 ```bash
+- 训练迁移权重
 >> python main.py --config ./config/example.json
 ```
 ## 6. License
