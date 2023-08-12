@@ -40,6 +40,7 @@
 ## 3. Dataset
 
 We provide some datasets processed in our code.
+"train" and "dev" represent the non-augment Few-shot dataset, while "train_best_clear" represents the dataset that has been enhanced and cleaned.
 
 ## 4. Preparation
 
