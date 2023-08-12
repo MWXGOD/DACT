@@ -51,27 +51,32 @@ We provide some datasets processed in our code.
 
 ```bash
 - 训练迁移权重
->> python main.py --config ./config/example.json
+>> python main-All_BC5CDR-disease.py
+>> python main-All_NCBI.py
+>> python main-All_BioNLP11EPI-IOBES.py
+>> python main-All_BioNLP13GE-IOBES.py
+
+- 复制迁移权重，四个数据集均以20-1为例，5-1，5-2，5-3，5-4，5-5，20-1，20-2，20-3，20-4，20-5，50-1，50-2，50-3，50-4，50-5的训练方法均和20-1相同。
+- 其中train_name和dev_name代表的是train和dev使用的数据集名字。
+- 以训练BC5CDR-disease数据集为例，其中All_NCBI.pt为训练迁移权重时，‘python main-All_NCBI.py’保存的权重
+
+-训练BC5CDR-disease数据集
+>> cp All_NCBI.pt NCBI-20-1.pt
+>> python main.py --config ./config/All_BC5CDR-disease-20-1.json --train_name train_best_clear --dev_name dev_best_clear
+
+-训练NCBI数据集
+>> cp All_BC5CDR-disease.pt BC5-20-1.pt
+>> python main.py --config ./config/All_BC5CDR-disease-20-1.json --train_name train_best_clear --dev_name dev_best_clear
+
+-训练BioNLP11EPI数据集
+>> cp All_BioNLP13GE-IOBES.pt Bio13-20-1.pt
+>> python main.py --config ./config/All_BC5CDR-disease-20-1.json --train_name train_best_clear --dev_name dev_best_clear
+
+-训练BioNLP13GE数据集
+>> cp All_BioNLP11EPI-IOBES.pt Bio11-20-1.pt
+>> python main.py --config ./config/All_BC5CDR-disease-20-1.json --train_name train_best_clear --dev_name dev_best_clear
 ```
-## 6. License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 7. Citation
-
-If you use this work or code, please kindly cite this paper:
-
-```
-@inproceedings{li2022unified,
-  title={Unified named entity recognition as word-word relation classification},
-  author={Li, Jingye and Fei, Hao and Liu, Jiang and Wu, Shengqiong and Zhang, Meishan and Teng, Chong and Ji, Donghong and Li, Fei},
-  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
-  volume={36},
-  number={10},
-  pages={10965--10973},
-  year={2022}
-}
-```
 
 
 
