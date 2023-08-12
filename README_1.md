@@ -76,7 +76,7 @@ We provide some datasets processed in our code.
 >> cp All_BioNLP11EPI-IOBES.pt Bio11-20-1.pt
 >> python main.py --config ./config/All_BC5CDR-disease-20-1.json --train_name train_best_clear --dev_name dev_best_clear
 
-If you want to train datasets other than 20-1 shot, you just need to replace "20-1" in the above statement with any of the following: 5-1, 5-2, 5-3, 5-4, 5-5, 20-1, 20-2, 20-3, 20-4, 20-5, 50-1, 50-2, 50-3, 50-4, 50-5.
+-If you want to train datasets other than 20-1 shot, you just need to replace "20-1" in the above statement with any of the following: 5-1, 5-2, 5-3, 5-4, 5-5, 20-1, 20-2, 20-3, 20-4, 20-5, 50-1, 50-2, 50-3, 50-4, 50-5.
 ```
 
 
