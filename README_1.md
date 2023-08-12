@@ -43,36 +43,36 @@ We provide some datasets processed in our code.
 
 ## 4. Preparation
 
-- 根据小样本原始数据，使用ChatGPT进行增强（code中已经给出）
-- 预训练相关数据集的迁移权重
-- 在训练增强后的小样本数据时，迁移已经训练好的相关数据权重
+- Augment using ChatGPT based on Few-shot original dataset (Already given in the code)
+- Transfer weights from pre-trained relevant dataset.
+- When training on augmented Few-shot original dataset, transfer weights from pre-trained relevant data.
 
 ## 5. Training
 
 ```bash
-- 训练迁移权重
+- Training Transfer Weights
 >> python main-All_BC5CDR-disease.py
 >> python main-All_NCBI.py
 >> python main-All_BioNLP11EPI-IOBES.py
 >> python main-All_BioNLP13GE-IOBES.py
 
-- 复制迁移权重，四个数据集均以20-1为例，5-1，5-2，5-3，5-4，5-5，20-1，20-2，20-3，20-4，20-5，50-1，50-2，50-3，50-4，50-5的训练方法均和20-1相同。
-- 其中train_name和dev_name代表的是train和dev使用的数据集名字。
-- 以训练BC5CDR-disease数据集为例，其中All_NCBI.pt为训练迁移权重时，‘python main-All_NCBI.py’保存的权重
+- Copying Transfer Weights for Different Datasets. For all datasets: 5-1,5-2,5-3,5-4,5-5,20-1,20-2,20-3,20-4,20-5,50-1,50-2,50-3,50-4,50-5, follow the same training method as 20-1:
+- "train_name" and "dev_name" represent the names of the datasets used for training and development, respectively.
+- Taking the training of the BC5CDR-disease dataset as an example, where "All_NCBI.pt" represents the transfer weights saved during training using the command 'python main-All_NCBI.py'.
 
--训练BC5CDR-disease数据集
+-Train the BC5CDR-disease dataset.
 >> cp All_NCBI.pt NCBI-20-1.pt
 >> python main.py --config ./config/All_BC5CDR-disease-20-1.json --train_name train_best_clear --dev_name dev_best_clear
 
--训练NCBI数据集
+-Train the NCBI dataset.
 >> cp All_BC5CDR-disease.pt BC5-20-1.pt
 >> python main.py --config ./config/All_BC5CDR-disease-20-1.json --train_name train_best_clear --dev_name dev_best_clear
 
--训练BioNLP11EPI数据集
+-Train the BioNLP11EPI dataset.
 >> cp All_BioNLP13GE-IOBES.pt Bio13-20-1.pt
 >> python main.py --config ./config/All_BC5CDR-disease-20-1.json --train_name train_best_clear --dev_name dev_best_clear
 
--训练BioNLP13GE数据集
+-Train the BioNLP13GE dataset.
 >> cp All_BioNLP11EPI-IOBES.pt Bio11-20-1.pt
 >> python main.py --config ./config/All_BC5CDR-disease-20-1.json --train_name train_best_clear --dev_name dev_best_clear
 ```
